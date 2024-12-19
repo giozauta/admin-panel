@@ -12,7 +12,7 @@ import EditUserView from "./pages/users/views/users-edit";
 import CreateUserView from "./pages/users/views/users-create";
 import BlogsTableView from "./pages/blogs/views/blogs-table";
 import CreateBlogForm from "./pages/blogs/components/blogs-create";
-import EditBlogForm from "./pages/blogs/components/blogs-edit";
+import EditBlogFormView from "./pages/blogs/views/blogs-edit";
 
 function App() {
   const [, setUser] = useAtom(userAtom);
@@ -61,7 +61,7 @@ function App() {
         <Route path="users/editUser/:id" element={<EditUserView />} />
         <Route path="users/createUser" element={<CreateUserView />} />
 
-        <Route path="blogs/editBlog/:id" element={<EditBlogForm />} />
+        <Route path="blogs/editBlog/:id" element={<EditBlogFormView />} />
         <Route path="blogs/createBlog" element={<CreateBlogForm />} />
       </Route>
 
