@@ -3,7 +3,6 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import AuthLayout from "./layout/auth";
 import DashboardLayout from "./layout/dashboard";
 import AuthGuard from "./components/auth-guard";
-import Blogs from "./pages/blogs";
 import { useAtom } from "jotai";
 import { useEffect } from "react";
 import { userAtom } from "./jotai-store/auth";
@@ -11,6 +10,9 @@ import supabase from "./supabase";
 import UsersView from "./pages/users/views/users-table";
 import EditUserView from "./pages/users/views/users-edit";
 import CreateUserView from "./pages/users/views/users-create";
+import BlogsTableView from "./pages/blogs/views/blogs-table";
+import CreateBlogForm from "./pages/blogs/components/blogs-create";
+import EditBlogForm from "./pages/blogs/components/blogs-edit";
 
 function App() {
   const [, setUser] = useAtom(userAtom);
@@ -54,10 +56,13 @@ function App() {
           </AuthGuard>
         }
       >
-        <Route path="blogs" element={<Blogs />} />
+        <Route path="blogs" element={<BlogsTableView />} />
         <Route path="users" element={<UsersView />} />
-        <Route path="users/editUser" element={<EditUserView />} />
+        <Route path="users/editUser/:id" element={<EditUserView />} />
         <Route path="users/createUser" element={<CreateUserView />} />
+
+        <Route path="blogs/editBlog/:id" element={<EditBlogForm />} />
+        <Route path="blogs/createBlog" element={<CreateBlogForm />} />
       </Route>
 
       <Route path="*" element={<div>404 - Page Not Found</div>} />
