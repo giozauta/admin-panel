@@ -1,10 +1,7 @@
-
-import EditBlogForm from '../../components/blogs-edit'
+import EditBlogForm from "../../components/blogs-edit";
 
 const EditBlogFormView = () => {
-  return (
-<EditBlogForm/>
-  )
-}
+  return <EditBlogForm />;
+};
 
-export default EditBlogFormView
+export default EditBlogFormView;
